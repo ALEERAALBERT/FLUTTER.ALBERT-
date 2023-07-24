@@ -1,1 +1,128 @@
+//number 1
+/*1. Take a list, say for example this one:
+ a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+and write a program that prints out all the elements of the list that are less than 5.
+*/
+answer 
+
+void main() {
+List a=[1,1,2,3,5,8,13,21,34,55,89];
+  //Pint elements less than 5 
+  
+  for (var x in a ){
+    if(x<5){
+      print (x);
+    }
+  }
+  }
+
+
+
+//number 2
+/*Take two lists, for example:
+ a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+
+  b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+
+and write a program that returns a list that contains only the elements that are common between them (without duplicates). Make sure your program works on two lists of different sizes.
+*/
+
+answer
+List<int> findCommonElements(List<int> list1, List<int> list2) {
+  // Convert both lists to sets to remove duplicates
+  Set<int> set1 = list1.toSet();
+  Set<int> set2 = list2.toSet();
+
+  // Find the intersection of the two sets
+  Set<int> commonElements = set1.intersection(set2);
+
+  // Convert the set back to a list and return it
+  return commonElements.toList();
+}
+
+void main() {
+  List<int> a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+  List<int> b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+  List<int> commonElements = findCommonElements(a, b);
+  print(commonElements);
+
+
+
+// number 3
+/* Write a program to check if a string is a palindrome or not.
+A palindrome is a string that reads the same forwards and backwards. Eg mum
+*/
+answer 
+bool isPalindrome(String str) {
+  // Remove any non-alphanumeric characters and convert to lowercase
+  String cleanStr = str.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
+
+  // Check if the cleaned string is equal to its reverse
+  return cleanStr == cleanStr.split('').reversed.join('');
+}
+
+void main() {
+  String inputString = "level";
+  bool result = isPalindrome(inputString);
+
+  if (result) {
+    print("$inputString is a palindrome.");
+  } else {
+    print("$inputString is not a palindrome.");
+  }
+}
+
+
+// number 4
+/* Write a program that takes a list of numbers for example
+a = [5, 10, 15, 20, 25]
+
+
+and makes a new list of only the first and last elements of the given list. For practice, write this code inside a function.
+*/
+void main() {
+  List<int> a = [5, 10, 15, 20, 25];
+  List<int> result = getFirstAndLastElements(a);
+  print(result); 
+}
+List<int> getFirstAndLastElements(List<int> inputList) {
+  if (inputList.isEmpty) {
+    throw ArgumentError("Input list is empty.");
+  }
+  
+  int firstElement = inputList.first;
+  int lastElement = inputList.last;
+  
+  return [firstElement, lastElement];
+}
+
+//number 6
+/*Write a program (function) that takes a list and returns a new list that contains all the elements of the first list minus all the duplicates.
+*/
+answer 
+
+void main() {
+  List<int> originalList = [1, 2, 2, 3, 4, 4, 5];
+  List<int> newList = removeDuplicates(originalList);
+  print(newList); 
+}
+
+List<T> removeDuplicates<T>(List<T> list) {
+  List<T> uniqueList = [];
+  
+  for (var item in list) {
+    if (!uniqueList.contains(item)) {
+      uniqueList.add(item);
+    }
+  }
+  
+  return uniqueList;
+}
+
+
+
 
